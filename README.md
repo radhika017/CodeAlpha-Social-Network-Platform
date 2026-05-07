@@ -1,35 +1,92 @@
-# 🎮 GameVerse Hub
+# 🌐 Mini Social Network Platform
 
-GameVerse Hub is an AI-powered gaming platform where users can explore games, view trailers, ratings, and AI-generated recommendations.
+A modern mini social media web application built with full-stack web development technologies. This platform allows users to connect, share posts, interact through comments, and follow other users in a responsive and user-friendly environment 🚀
 
-## 🚀 Features
-- AI-generated game descriptions
-- Responsive gaming UI
-- Game cards & details
-- React + Tailwind frontend
-- Node.js + Express backend
-- MongoDB database
+---
+
+## ✨ Features
+
+- 👤 User Authentication & Profiles
+- 📝 Create, Edit & Delete Posts
+- 💬 Comment System
+- ❤️ Like Posts
+- ➕ Follow / Unfollow Users
+- 📱 Responsive Design
+- 🔒 Secure Backend Integration
+
+---
 
 ## 🛠️ Tech Stack
-- React.js
-- TailwindCSS
-- Node.js
-- Express.js
-- MongoDB
-- OpenAI API
-
-## ⚙️ Installation
-
-### Backend
-```bash
-cd backend
-npm install
-npm start
-```
 
 ### Frontend
+- HTML5
+- CSS3
+- JavaScript
+
+### Backend
+- Django / Express.js
+
+### Database
+- SQLite / MongoDB
+
+---
+
+## 📂 Project Structure
+
 ```bash
-cd frontend
+Mini-Social-Network/
+│
+├── frontend/
+├── backend/
+├── database/
+├── static/
+├── templates/
+└── README.md
+```
+
+---
+
+## 🚀 Installation
+
+### Clone Repository
+```bash
+git clone https://github.com/yourusername/CodeAlpha_SOCIAL_NETWORK_PLATFORM.git
+```
+
+### Navigate to Project Folder
+```bash
+cd CodeAlpha_SOCIAL_NETWORK_PLATFORM
+```
+
+### Install Dependencies
+```bash
 npm install
+```
+
+### Run Server
+```bash
 npm start
 ```
+
+---
+
+## 🎯 Future Enhancements
+
+- 📸 Image Upload Feature
+- 💬 Real-time Chat System
+- 🔔 Notifications
+- 🌙 Dark Mode
+- 📊 User Activity Dashboard
+
+---
+
+## 👩‍💻 Developed By
+
+Radhika  
+Full Stack Web Development Project 💻
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
