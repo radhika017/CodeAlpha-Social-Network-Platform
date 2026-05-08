@@ -58,6 +58,7 @@ def follow_user(request, user_id):
     user_to_follow = get_object_or_404(User, id=user_id)
 
     if request.user != user_to_follow:
+
         follow, created = Follow.objects.get_or_create(
             follower=request.user,
             following=user_to_follow
@@ -71,11 +72,22 @@ def follow_user(request, user_id):
 
 @login_required
 def profile(request, user_id):
+
     profile_user = get_object_or_404(User, id=user_id)
 
-    posts = profile_user.posts.all()
+    posts = Post.objects.filter(user=profile_user)
+
+    followers_count = Follow.objects.filter(
+        following=profile_user
+    ).count()
+
+    following_count = Follow.objects.filter(
+        follower=profile_user
+    ).count()
 
     return render(request, 'profile.html', {
         'profile_user': profile_user,
-        'posts': posts
+        'posts': posts,
+        'followers_count': followers_count,
+        'following_count': following_count,
     })

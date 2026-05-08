@@ -2,21 +2,181 @@
 
 {% block content %}
 
-<div class="post-box">
+<style>
 
-<h2>{{ profile_user.username }}'s Profile</h2>
+    .profile-card{
+        background:white;
+        padding:30px;
+        border-radius:20px;
+        margin-bottom:25px;
+        box-shadow:0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .profile-top{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:20px;
+    }
+
+    .profile-name{
+        font-size:38px;
+        font-weight:bold;
+        color:#222;
+    }
+
+    .profile-stats{
+        display:flex;
+        gap:20px;
+        flex-wrap:wrap;
+    }
+
+    .stat-box{
+        text-align:center;
+        background:#f3f6fb;
+        padding:15px 25px;
+        border-radius:15px;
+        min-width:120px;
+    }
+
+    .stat-box h3{
+        color:#1877f2;
+        margin:0;
+        font-size:28px;
+    }
+
+    .stat-box p{
+        margin-top:5px;
+        color:#555;
+        font-weight:600;
+    }
+
+    .post-card{
+        background:white;
+        padding:25px;
+        border-radius:18px;
+        margin-bottom:20px;
+        box-shadow:0 5px 18px rgba(0,0,0,0.07);
+        transition:0.3s ease;
+    }
+
+    .post-card:hover{
+        transform:translateY(-3px);
+    }
+
+    .post-content{
+        font-size:20px;
+        color:#333;
+        margin-bottom:15px;
+        line-height:1.6;
+        word-wrap:break-word;
+    }
+
+    .like-count{
+        color:#e63946;
+        font-weight:bold;
+        font-size:15px;
+    }
+
+    .empty-post{
+        background:white;
+        padding:30px;
+        border-radius:15px;
+        text-align:center;
+        color:#666;
+        box-shadow:0 5px 15px rgba(0,0,0,0.06);
+    }
+
+    /* MOBILE RESPONSIVE */
+
+    @media(max-width:768px){
+
+        .profile-top{
+            flex-direction:column;
+            align-items:flex-start;
+        }
+
+        .profile-name{
+            font-size:30px;
+        }
+
+        .profile-stats{
+            width:100%;
+            justify-content:space-between;
+        }
+
+        .stat-box{
+            flex:1;
+            min-width:90px;
+            padding:12px;
+        }
+
+        .post-content{
+            font-size:17px;
+        }
+    }
+
+</style>
+
+<div class="profile-card">
+
+    <div class="profile-top">
+
+        <div>
+            <h1 class="profile-name">
+                🚀 {{ profile_user.username }}'s Profile
+            </h1>
+        </div>
+
+        <div class="profile-stats">
+
+            <div class="stat-box">
+                <h3>{{ posts.count }}</h3>
+                <p>Posts</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>{{ followers_count }}</h3>
+                <p>Followers</p>
+            </div>
+
+            <div class="stat-box">
+                <h3>{{ following_count }}</h3>
+                <p>Following</p>
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
 {% for post in posts %}
 
-<div class="post-box">
+    <div class="post-card">
 
-<p>{{ post.content }}</p>
+        <div class="post-content">
+            {{ post.content }}
+        </div>
 
-<p>❤️ {{ post.likes.count }}</p>
+        <div class="like-count">
+            ❤️ {{ post.likes.count }} Likes
+        </div>
 
-</div>
+    </div>
+
+{% empty %}
+
+    <div class="empty-post">
+
+        <h3>No Posts Yet 🚀</h3>
+
+        <p>
+            This user has not shared anything yet.
+        </p>
+
+    </div>
 
 {% endfor %}
 

@@ -1,156 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | SocialHub</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <style>
+     <style>
 
         *{
             margin:0;
             padding:0;
             box-sizing:border-box;
-            font-family:'Poppins',sans-serif;
+            font-family:Arial, sans-serif;
         }
 
         body{
             height:100vh;
-
             display:flex;
             justify-content:center;
             align-items:center;
-
-            background:linear-gradient(135deg,#1877f2,#6fb1fc);
+            background:linear-gradient(135deg, #1877f2, #6fb1fc);
         }
 
-        .login-container{
-
+        .login-box{
             width:400px;
-
-            background:rgba(255,255,255,0.15);
-
-            backdrop-filter:blur(12px);
-
             padding:40px;
-
-            border-radius:25px;
-
-            box-shadow:0 8px 32px rgba(0,0,0,0.2);
-
-            border:1px solid rgba(255,255,255,0.2);
-
+            border-radius:20px;
+            background:rgba(255,255,255,0.15);
+            backdrop-filter:blur(10px);
+            box-shadow:0 8px 25px rgba(0,0,0,0.2);
             text-align:center;
-
-            animation:fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn{
-            from{
-                opacity:0;
-                transform:translateY(20px);
-            }
-
-            to{
-                opacity:1;
-                transform:translateY(0);
-            }
+            color:white;
         }
 
         .logo{
-            font-size:40px;
+            font-size:50px;
             margin-bottom:10px;
         }
 
-        h2{
-            color:white;
+        .login-box h2{
             margin-bottom:30px;
-            font-weight:600;
+            font-size:36px;
         }
 
-        form p{
-            text-align:left;
-            color:white;
-            margin-bottom:18px;
+        form{
+            width:100%;
         }
 
         input{
             width:100%;
             padding:14px;
-
+            margin:12px 0;
             border:none;
+            border-radius:10px;
             outline:none;
-
-            border-radius:12px;
-
-            margin-top:8px;
-
-            background:rgba(255,255,255,0.9);
-
-            font-size:15px;
+            font-size:16px;
         }
 
         button{
             width:100%;
-
             padding:14px;
-
-            border:none;
-
-            border-radius:14px;
-
-            background:white;
-
-            color:#1877f2;
-
-            font-size:16px;
-            font-weight:600;
-
-            cursor:pointer;
-
-            transition:0.3s ease;
-
             margin-top:10px;
+            border:none;
+            border-radius:10px;
+            background:white;
+            color:#1877f2;
+            font-size:18px;
+            font-weight:bold;
+            cursor:pointer;
+            transition:0.3s;
         }
 
         button:hover{
-            transform:translateY(-3px);
-            background:#f1f1f1;
+            background:#e4e6eb;
+            transform:scale(1.03);
         }
 
-        .bottom-text{
-            color:white;
+        p{
             margin-top:20px;
-            font-size:14px;
+            font-size:15px;
+            opacity:0.9;
         }
 
-    </style>
-
+     </style>
 </head>
 
 <body>
 
-<div class="login-container">
+    <div class="login-box">
 
-    <div class="logo">🚀</div>
+        <div class="logo">🚀</div>
 
-    <h2>Welcome Back</h2>
+        <h2>Welcome Back</h2>
 
-    <form method="POST">
+        <form method="POST">
+            {% csrf_token %}
 
-        {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
 
-        {{ form.as_p }}
+            <input type="password" name="password" placeholder="Password" required>
 
-        <button type="submit">Login</button>
+            <button type="submit">Login</button>
+        </form>
 
-    </form>
+        <p>SocialHub • Connect with the world</p>
 
-    <p class="bottom-text">
-        SocialHub • Connect with the world
-    </p>
-
-</div>
+    </div>
 
 </body>
 </html>
